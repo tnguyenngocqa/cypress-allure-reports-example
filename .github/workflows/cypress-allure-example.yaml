@@ -11,9 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
+      # - uses: actions/setup-java@v1
+      #   with:
+      #     java-version: 1.8
 
       - name: Install cypress and verify
         run: |
@@ -23,19 +23,18 @@ jobs:
         run: npm run cy:run
         continue-on-error: true
 
-      - name: Generate Allure report
-        run: npm run allure:report
+      # - name: Generate Allure report
+      #   run: npm run allure:report
 
-      - name: Copy test execution videos, screenshots and reports
-        run: |
-          mkdir public
-          cp -a allure-report/. public
-          cp -r allure-results public/allure-results
+      # - name: Copy test execution videos, screenshots and reports
+      #   run: |
+      #     mkdir public
+      #     cp -a allure-report/. public
+      #     cp -r allure-results public/allure-results
+      #     cp -r cypress/screenshots public/screenshots
 
-        # cp -r cypress/screenshots public/screenshots
-
-      - name: Deploy report page to GitHub Page
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      # - name: Deploy report page to GitHub Page
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./public
