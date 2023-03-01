@@ -105,4 +105,4 @@ dist
 
 # Reports
 allure-results/
-allure-report/
+# allure-report/
